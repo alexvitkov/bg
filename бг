@@ -1,0 +1,18 @@
+#!/bin/sh
+
+OUT=$(mktemp)
+
+cp $1 "$OUT"
+
+sed -i 's/в случай че/if/g; 
+        s/за/for/g; 
+        s/повърни/return/g; 
+        s/функцийка/def/g; 
+        s/във/in/g; 
+        s/в противен случай/else/g; 
+        s/изпринтирай/print/g; 
+        s/докато/while/g; 
+        s/обхват/range/g' "$OUT"
+
+python "$OUT"
+rm "$OUT"
